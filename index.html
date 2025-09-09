@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -8,7 +10,7 @@
 </head>
 <body class="bg-green-50">
 
-<!-- navbar-section -->
+<!--  Navbar -->
 <nav class="bg-white shadow">
   <div class="container mx-auto flex flex-wrap justify-between items-center p-4">
     <div class="flex items-center gap-2">
@@ -33,10 +35,20 @@
     </div>
   </div>
 </nav>
+
+<!--  Hero Section -->
+<section class="text-center container mx-auto p-6 bg-gradient-to-r from-[#013223] via-[#006747] to-[#013223] w-full">
+  <div class="text-white">
+    <img src="assets/logo.png" alt="" class="w-16 h-16 mx-auto mb-4">
+    <h1 class="text-2xl sm:text-4xl font-bold">Emergency Service Directory</h1>
+    <p class="mt-2 text-sm sm:text-base">Government Emergency Services at Your Fingertips – A Project by Government of the People's Republic of Bangladesh</p>
+  </div>
+</section>
+
 <!--  Main Content -->
 <main class="py-6 grid grid-cols-1 lg:grid-cols-4 gap-6 container mx-auto">
 
-  <!--  Cards Grid -->
+  <!-- Cards Grid -->
   <section class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
     <!-- Card 1 -->
@@ -184,7 +196,8 @@
     </div>
 
   </section>
-    <!--  Call History Sidebar -->
+
+  <!--  Call History Sidebar -->
   <aside class="bg-white p-4 rounded-xl shadow h-full">
     <div class="flex justify-between items-center mb-4">
       <h3 class="font-bold">Call History</h3>
@@ -194,7 +207,8 @@
   </aside>
 
 </main>
-<!-- Script -->
+
+<!--  Script -->
 <script>
   let heartCount = 0;
   let copyCount = 0;
@@ -217,6 +231,40 @@
   // Clear Call History
   clearBtn.addEventListener("click", () => {
     historyList.innerHTML = ""; 
+  });
+
+  // Copy Button
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const number = btn.getAttribute("data-number");
+      navigator.clipboard.writeText(number).then(() => {
+        copyCount++;
+        copyDisplay.textContent = copyCount;
+       ;
+      });
+    });
+  });
+
+  // Call Button
+  document.querySelectorAll(".call-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (coins >= 20) {
+        coins -= 20; 
+        coinDisplay.textContent = coins; 
+
+        const name = btn.getAttribute("data-name");
+        const number = btn.getAttribute("data-number");
+        const time = new Date().toLocaleTimeString();
+
+        const li = document.createElement("li");
+        li.textContent = `${name} (${number}) - ${time}`;
+        historyList.prepend(li);
+
+        alert(`📞 Calling ${name} at ${number}`);
+      } else {
+        alert("⚠ Not enough coins!");
+      }
+    });
   });
 </script>
 </body>
