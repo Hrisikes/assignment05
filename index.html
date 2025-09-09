@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Assignment005</title>
+</head>
+<body class="bg-green-50">
+
+<!-- navbar-section -->
+<nav class="bg-white shadow">
+  <div class="container mx-auto flex flex-wrap justify-between items-center p-4">
+    <div class="flex items-center gap-2">
+      <img class="h-12 w-12" src="assets/logo.png" alt="">
+      <h1 class="font-bold text-green-800 text-lg sm:text-xl">Emergency<br> Service</h1>
+    </div>
+
+    <div class="flex gap-3 mt-3 sm:mt-0 items-center">
+      <div class="flex items-center p-2 bg-[#edfff0] rounded-full font-bold text-center gap-2">
+        <span class="text-red-600 text-xl">❤</span>
+        <span id="heartCount" class="font-semibold">0</span>
+      </div>
+
+      <div class="flex items-center gap-2 bg-[#edfff0] px-3 py-2 rounded-full">
+        <span class="text-yellow-500 text-xl">🪙</span>
+        <span id="coinCount" class="font-semibold">100</span>
+      </div>
+
+      <button class="bg-green-500 text-white px-3 py-2 rounded-lg shadow">
+        <span id="copyCount">0</span> Copy
+      </button>
+    </div>
+  </div>
+</nav></body>
+</html>
