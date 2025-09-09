@@ -194,5 +194,30 @@
   </aside>
 
 </main>
+<!-- Script -->
+<script>
+  let heartCount = 0;
+  let copyCount = 0;
+  let coins = 100; 
+
+  const heartDisplay = document.getElementById("heartCount");
+  const copyDisplay = document.getElementById("copyCount");
+  const historyList = document.getElementById("historyList");
+  const clearBtn = document.getElementById("clearHistory");
+  const coinDisplay = document.getElementById("coinCount");
+
+  // Heart Button
+  document.querySelectorAll(".heart-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      heartCount++;
+      heartDisplay.textContent = heartCount;
+    });
+  });
+
+  // Clear Call History
+  clearBtn.addEventListener("click", () => {
+    historyList.innerHTML = ""; 
+  });
+</script>
 </body>
 </html>
